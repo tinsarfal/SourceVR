@@ -1,68 +1,89 @@
 # SourceVR
 
-Native VR ports of Half-Life 2, Episode One, and Episode Two for standalone Meta Quest headsets. Builds are published on the [Releases](../../releases) page.
+Native VR ports of Half-Life 2, Episode One, and Episode Two for standalone Meta
+Quest headsets. Builds are published on the [Releases](../../releases) page.
 
-No game content is included. Each APK requires your own retail copy of the game.
+The release does not include the retail depots needed to play. You need your own
+Steam copy of every game you want to play.
 
 ## Requirements
 
 - A Meta Quest headset with Developer Mode enabled (developed and tested on Quest 3).
-- A Steam installation of Half-Life 2, on the **`steam_legacy`** branch (PatchVersion `8491853`). In Steam: *Half-Life 2 → Properties → Betas → `steam_legacy`*, then let it update. This is the only build the port is written and tested against. If you have a different version, the importer will offer to launch a different build anyway once your files pass every other check. Installing other build versions is untested, reversible, and at your own risk.
-- Episode One / Episode Two, copied from that same `steam_legacy` installation, if you want to play them.
-- Free space on the headset:
+- Half-Life 2 on Steam's **`steam_legacy`** branch (PatchVersion `8491853`). In
+  Steam, open *Half-Life 2 → Properties → Betas*, select `steam_legacy`, and let
+  the game update.
+- Episode One and/or Episode Two from that same installation if you want to play them.
+- Enough headset space for the APK, its staged VR files, and your retail game
+  folders. The installer shows the exact staging requirement; keep at least 1 GiB
+  of extra free space during installation and updates.
 
-  | Game | APK + install | Game content |
-  |---|---|---|
-  | Half-Life 2 | ~1.2 GB | ~3.8 GB |
-  | Episode One | ~1.2 GB | ~1.6 GB (plus Half-Life 2's content) |
-  | Episode Two | ~1.2 GB | ~2.3 GB (plus Episode One's and Half-Life 2's content) |
+## Install or update
 
-## 1. Install the APK
-
-Download from Releases and sideload with SideQuest or adb:
+The main APK contains one launcher for all three games and uses the package
+`com.sourcevrport.hl2vr`:
 
 ```sh
-adb install SourceVRPort-hl2-<version>.apk
+adb install -r SourceVRPort-hl2Episodes-<version>.apk
 ```
 
-Each game is a separate, independent APK — install only the ones you want:
+Use `-r` for updates so Android preserves your existing app data. Do not uninstall
+an existing SourceVRPort app to work around an update or signing error.
 
-| Game | Package |
-|---|---|
-| Half-Life 2 | `com.sourcevrport.hl2vr` |
-| Episode One | `com.sourcevrport.ep1vr` |
-| Episode Two | `com.sourcevrport.ep2vr` |
+### Existing Episode One and Episode Two players
 
-Launch it from **Library → Unknown Sources** in the headset.
+Releases before 0.1.14 installed each episode as a separate Android app. If you
+have one of those versions, transfer its saves and settings **before** installing
+the unified APK.
 
-## 2. Grant storage access
+> **Do not uninstall the old episode app first.** Uninstalling deletes the only
+> app-owned copy of its saves that Android lets the transfer tool read.
 
-On first launch the app asks for **Allow access to manage all files**. Grant it. The games share your retail content from one location, and Source needs to open those files by path.
+For each old episode app you have installed:
 
-## 3. Import your game content
+1. Update it in place with the matching transfer APK.
 
-The retail folders live at `/sdcard/SourceVRPort/common/` on the headset:
+   ```sh
+   adb install -r SourceVRPort-save-transfer-ep1-<version>.apk
+   adb install -r SourceVRPort-save-transfer-ep2-<version>.apk
+   ```
+
+2. Open the transfer tool from **Library → Unknown Sources**, grant its requested
+   file access, and choose **Copy and verify user data**.
+3. Wait for the transfer to report success. If both old episode apps are installed,
+   complete both transfers.
+4. Install the unified `hl2Episodes` APK with `adb install -r`.
+5. Launch each episode and confirm its saves before removing a transfer app.
+
+The transfer APKs contain no game or engine. Fresh installs do not need them.
+
+## Import your game content
+
+On first launch, grant **Allow access to manage all files**. SourceVRPort keeps one
+shared copy of your retail folders at `/sdcard/SourceVRPort/common/`:
 
 | Folder | Needed by |
 |---|---|
-| `hl2` | all games |
-| `platform` | all games |
+| `hl2` | all three games |
+| `platform` | all three games |
 | `episodic` | Episode One and Episode Two |
 | `ep2` | Episode Two |
 
-Copy them from your Steam install:
+Copy those folders from your Steam installation:
 
 - Windows: `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2\`
 - macOS: `~/Library/Application Support/Steam/steamapps/common/Half-Life 2/`
 
-Two ways to get them across:
+You can copy them to the headset with adb, MTP, SideQuest, or another file-transfer
+tool. Then choose **Import a folder…** in SourceVRPort and select an individual game
+folder or a parent folder containing several of them. Repeat until every folder
+required by the games you want is installed.
 
-**From the headset.** Use ADB, sidequest, or some other method to transfer them to the headset,  then press **Import from folder…** and select a listed folder, or a parentfolder containing  several of them. Android asks for one folder at a time, so repeat until every required folder is installed.
+The importer verifies files before activating them and preserves saves, settings,
+mods, and generated data separately from retail content. A complete installation
+from another Steam build can be allowed per game; modified or damaged content can
+also be force-launched if you explicitly accept the warning.
 
-**From a computer.** Plug the headset in and copy the folders over MTP or adb straight into `/sdcard/SourceVRPort/common/`, then press **Re-check**. The `bin/` and `save/` subfolders are not used — skip them.
+## Play
 
-Files are verified before anything is activated, and your saves and settings are kept private to each game. Missing or damaged files are always refused; a complete copy from an unsupported Steam build is the one case you can override yourself, per game, from the same screen.
-
-## 4. Play
-
-Once the content check reports ready, press **Play**. Future launches go straight into the game.
+Open SourceVRPort from **Library → Unknown Sources**, choose a game, and press
+**Play** once its content check reports ready.
