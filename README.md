@@ -20,7 +20,8 @@ Steam copy of every game you want to play.
 ## Install or update
 
 The main APK contains one launcher for all three games and uses the package
-`com.sourcevrport.hl2vr`:
+`com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
+sideloading tool. To install or update it with adb:
 
 ```sh
 adb install -r SourceVRPort-hl2Episodes-<version>.apk
@@ -79,9 +80,54 @@ folder or a parent folder containing several of them. Repeat until every folder
 required by the games you want is installed.
 
 The importer verifies files before activating them and preserves saves, settings,
-mods, and generated data separately from retail content. A complete installation
-from another Steam build can be allowed per game; modified or damaged content can
-also be force-launched if you explicitly accept the warning.
+installed mods, and generated data when retail content is re-imported. A complete
+installation from another Steam build can be allowed per game; modified or damaged
+content can also be force-launched if you explicitly accept the warning.
+
+## Install content mods
+
+SourceVRPort can mount content-only mods containing maps, materials, models, scripts,
+sounds, or VPK archives. Transfer each mod from your computer into the appropriate
+public `custom` folder:
+
+| Game | Mod folder on the headset |
+|---|---|
+| Half-Life 2 | `/sdcard/SourceVRPort/common/hl2/custom/` |
+| Episode One | `/sdcard/SourceVRPort/common/episodic/custom/` |
+| Episode Two | `/sdcard/SourceVRPort/common/ep2/custom/` |
+
+A mod in the Half-Life 2 folder is also mounted by both Episodes. Use a game's own
+folder when the mod should apply only to that game.
+
+**Copy the enclosing mod folder, not its contents directly into `custom`.** Each
+immediate child of `custom` must be one complete mod folder or one VPK:
+
+```text
+# Correct
+common/hl2/custom/MyMod/materials/...
+common/hl2/custom/MyMod/models/...
+common/hl2/custom/MyMod/scripts/...
+common/hl2/custom/MyMod/sound/...
+
+# Wrong: these folders are one level too shallow and will be skipped
+common/hl2/custom/materials/...
+common/hl2/custom/models/...
+common/hl2/custom/scripts/...
+common/hl2/custom/sound/...
+```
+
+For example:
+
+```sh
+adb shell mkdir -p /sdcard/SourceVRPort/common/hl2/custom
+adb push "/path/to/MyMod" /sdcard/SourceVRPort/common/hl2/custom/MyMod
+```
+
+For a Steam Workshop download, copy the entire numbered item folder so
+`content_dir.vpk` and all `content_000.vpk`, `content_001.vpk`, … parts stay together
+inside one folder.
+
+Mods that include their own `client.dll` or `server.dll` game code are not supported.
 
 ## Play
 
