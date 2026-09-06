@@ -29,8 +29,7 @@ Steam copy of every game you want to play.
 
 ## Install or update
 
-The upcoming 0.1.21 release is still in preparation. See the
-[draft changelog](release-notes-0.1.21.md).
+The current release is 0.1.21. See its [release notes](release-notes-0.1.21.md).
 
 The main APK contains one launcher for all five games and uses the package
 `com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
@@ -39,6 +38,9 @@ sideloading tool. To install or update it with adb:
 ```sh
 adb install -r SourceVR-<version>.apk
 ```
+
+PICO headsets use `SourceVR-pico-<version>.apk` instead. PICO support is
+experimental and untested.
 
 Use `-r` for updates so Android preserves your existing app data. Do not uninstall
 an existing SourceVRPort app to work around an update or signing error.
