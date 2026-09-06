@@ -1,0 +1,19 @@
+- Added highly experimental Portal 2 support.
+- Added per-game launch options.
+- Added 2x and 4x anti-aliasing options.
+- Added A/B button controls for menus.
+- Added custom-map launching to the Mods menu.
+- Added snap-turn stick reach and prop fade distance settings.
+- Added a draggable scrollbar to VR settings.
+- Fixed eye mismatches and instability with Application SpaceWarp.
+- Fixed fading props rendering incorrectly with Application SpaceWarp.
+- Fixed updates sometimes retaining older game files.
+- Fixed a crash when pressing controller triggers.
+- Fixed menu and Portal gun haptics on older Horizon OS versions.
+- Fixed the caption size setting not affecting normal subtitles.
+- Fixed launched weapons and objects colliding with the player's hands or held weapon.
+- Fixed laser sights freezing or drifting while menus were open.
+- Fixed Portal menu backgrounds disappearing when looking around.
+- Fixed Portal room-scale turning, carrying, and Portal gun positioning.
+- Fixed black screens and wall clipping when leaning or moving through portals.
+- Fixed flashlight shadows flickering.

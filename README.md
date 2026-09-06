@@ -1,7 +1,7 @@
 # SourceVR
 
 Native VR ports of Half-Life 2, Portal, Portal 2, Episode One, and Episode Two for
-standalone Meta Quest headsets. Builds are published on the
+standalone Meta Quest and PICO headsets. Builds are published on the
 [Releases](../../releases) page.
 
 The release does not include the retail depots needed to play. You need your own
@@ -10,9 +10,11 @@ Steam copy of every game you want to play.
 > **Portal 2 is highly experimental and is not ready for standard gameplay.**
 > Treat it as an early test build, not as a campaign-ready release.
 
+> **PICO support is experimental, untested, and may not work.**
+
 ## Requirements
 
-- A Meta Quest headset with Developer Mode enabled (developed and tested on Quest 3).
+- A Meta Quest or PICO headset with Developer Mode enabled (developed and tested on Quest 3).
 - Half-Life 2 on Steam's **`steam_legacy`** branch (PatchVersion `8491853`). In
   Steam, open *Half-Life 2 → Properties → Betas*, select `steam_legacy`, and let
   the game update. These files are also required by Portal, Episode One, and
@@ -26,6 +28,9 @@ Steam copy of every game you want to play.
   of extra free space during installation and updates.
 
 ## Install or update
+
+The upcoming 0.1.21 release is still in preparation. See the
+[draft changelog](release-notes-0.1.21.md).
 
 The main APK contains one launcher for all five games and uses the package
 `com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
