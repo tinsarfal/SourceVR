@@ -1,1 +1,4 @@
 .DS_Store
+*.apk
+SHA256SUMS*.txt
+release-notes*.md
