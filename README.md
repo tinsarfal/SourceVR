@@ -17,14 +17,15 @@ Steam copy of every game you want to play.
 ## Requirements
 
 - A Meta Quest or PICO headset with Developer Mode enabled (developed and tested on Quest 3).
-- Half-Life 2 on Steam's **`steam_legacy`** branch (PatchVersion `8491853`). In
-  Steam, open *Half-Life 2 → Properties → Betas*, select `steam_legacy`, and let
-  the game update. These files are also required by Portal, Episode One, and
-  Episode Two.
+- Half-Life 2 on Steam. The normal/default **20th Anniversary (non-legacy)**
+  files work in SourceVR 0.1.22 and later, but **`steam_legacy` is recommended**
+  (PatchVersion `8491853`). To use it, open *Half-Life 2 → Properties → Betas*
+  in Steam, select `steam_legacy`, and let the game update. Half-Life 2's files
+  are also required by Portal, Episode One, and Episode Two.
 - Portal on Steam if you want to play Portal.
 - Portal 2 on Steam if you want to test the experimental Portal 2 support.
-- Episode One and/or Episode Two from the `steam_legacy` Half-Life 2 installation
-  if you want to play them.
+- Episode One and/or Episode Two from your Half-Life 2 installation if you want
+  to play them. Both the Anniversary and `steam_legacy` files work.
 - Enough headset space for the APK, its staged VR files, and your retail game
   folders. The installer shows the exact staging requirement; keep at least 1 GiB
   of extra free space during installation and updates.
@@ -101,7 +102,8 @@ until every folder required by the games you want is installed.
 
 ### Half-Life 2 and the Episodes
 
-Copy the required folders from your `steam_legacy` Half-Life 2 installation:
+Copy the required folders from your Half-Life 2 installation. Both the normal
+Anniversary and `steam_legacy` files work; `steam_legacy` is recommended:
 
 - Windows: `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2\`
 - macOS: `~/Library/Application Support/Steam/steamapps/common/Half-Life 2/`
@@ -113,8 +115,9 @@ and import both `episodic` and `ep2` for Episode Two.
 
 Portal needs folders from two different Steam installations:
 
-1. Import `hl2` and `platform` from the **`steam_legacy` Half-Life 2** installation
-   above. Do not substitute the same-named folders from Portal's installation.
+1. Import `hl2` and `platform` from the **Half-Life 2** installation above
+   (Anniversary or `steam_legacy`; `steam_legacy` is recommended). Do not
+   substitute the same-named folders from Portal's installation.
 2. Import `portal` from your Portal installation:
 
    - Windows: `C:\Program Files (x86)\Steam\steamapps\common\Portal\`
@@ -138,7 +141,7 @@ its content check to report ready.
 3. Choose **Import a folder…** and select the Portal 2 parent folder to import all
    five folders together, or import them one at a time. SourceVRPort stores Portal
    2's `platform` folder as `portal2_platform` so it cannot overwrite the
-   `steam_legacy` Half-Life 2 `platform` folder.
+   Half-Life 2 `platform` folder.
 
 The importer verifies files before activating them and preserves saves, settings,
 installed mods, and generated data when retail content is re-imported. A complete
