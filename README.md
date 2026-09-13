@@ -18,11 +18,12 @@ Steam copy of every game you want to play.
 
 - A Meta Quest or PICO headset with Developer Mode enabled (developed and tested on Quest 3).
 - Half-Life 2 on Steam. The normal/default **20th Anniversary (non-legacy)**
-  files work in SourceVR 0.1.22 and later, but **`steam_legacy` is recommended**
+  files work for Half-Life 2 in SourceVR 0.1.22 and later, but **`steam_legacy` is recommended**
   (PatchVersion `8491853`). To use it, open *Half-Life 2 → Properties → Betas*
   in Steam, select `steam_legacy`, and let the game update. Half-Life 2's files
   are also required by Portal, Episode One, and Episode Two.
-- Portal on Steam if you want to play Portal.
+- Portal on Steam if you want to play Portal. **Portal requires Half-Life 2's
+  `steam_legacy` files; the Anniversary files do not work with Portal.**
 - Portal 2 on Steam if you want to test the experimental Portal 2 support.
 - Episode One and/or Episode Two from your Half-Life 2 installation if you want
   to play them. Both the Anniversary and `steam_legacy` files work.
@@ -115,8 +116,10 @@ and import both `episodic` and `ep2` for Episode Two.
 
 Portal needs folders from two different Steam installations:
 
-1. Import `hl2` and `platform` from the **Half-Life 2** installation above
-   (Anniversary or `steam_legacy`; `steam_legacy` is recommended). Do not
+1. Import `hl2` and `platform` from the **Half-Life 2 `steam_legacy`** installation
+   above. **The Anniversary files do not work with Portal.** Select `steam_legacy`
+   under *Half-Life 2 → Properties → Betas* in Steam and let the game update
+   before copying these folders. Do not
    substitute the same-named folders from Portal's installation.
 2. Import `portal` from your Portal installation:
 
