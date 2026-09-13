@@ -32,7 +32,7 @@ Steam copy of every game you want to play.
 
 ## Install or update
 
-The current release is 0.1.22. See its [release notes](https://github.com/tinsarfal/SourceVR/releases/tag/0.1.22).
+The current release is 0.1.23. See its [release notes](https://github.com/tinsarfal/SourceVR/releases/tag/0.1.23).
 
 The main APK contains one launcher for all five games and uses the package
 `com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
