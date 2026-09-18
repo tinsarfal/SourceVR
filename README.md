@@ -1,6 +1,6 @@
 # SourceVR
 
-Native VR ports of Half-Life 2, Portal, Portal 2, Episode One, and Episode Two for
+Native VR ports of Half-Life 2, Lost Coast, Portal, Portal 2, Episode One, and Episode Two for
 standalone Meta Quest and PICO headsets. Builds are published on the
 [Releases](../../releases) page.
 
@@ -21,21 +21,23 @@ Steam copy of every game you want to play.
   files work for Half-Life 2 in SourceVR 0.1.22 and later, but **`steam_legacy` is recommended**
   (PatchVersion `8491853`). To use it, open *Half-Life 2 → Properties → Betas*
   in Steam, select `steam_legacy`, and let the game update. Half-Life 2's files
-  are also required by Portal, Episode One, and Episode Two.
-- Portal on Steam if you want to play Portal. **Portal requires Half-Life 2's
-  `steam_legacy` files; the Anniversary files do not work with Portal.**
+  are also required by Lost Coast, Portal, Episode One, and Episode Two.
+- Portal on Steam if you want to play Portal. Both Half-Life 2 content branches
+  work with Portal in 0.1.24.
 - Portal 2 on Steam if you want to test the experimental Portal 2 support.
 - Episode One and/or Episode Two from your Half-Life 2 installation if you want
   to play them. Both the Anniversary and `steam_legacy` files work.
+- Lost Coast from your Half-Life 2 installation if you want to play it. Both
+  content branches work.
 - Enough headset space for the APK, its staged VR files, and your retail game
   folders. The installer shows the exact staging requirement; keep at least 1 GiB
   of extra free space during installation and updates.
 
 ## Install or update
 
-The current release is 0.1.23. See its [release notes](https://github.com/tinsarfal/SourceVR/releases/tag/0.1.23).
+The current release is 0.1.24. See its [release notes](https://github.com/tinsarfal/SourceVR/releases/tag/0.1.24).
 
-The main APK contains one launcher for all five games and uses the package
+The main APK contains one launcher for all six games and uses the package
 `com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
 sideloading tool. To install or update it with adb:
 
@@ -85,11 +87,12 @@ shared copy of your retail folders at `/sdcard/SourceVRPort/common/`:
 
 | Folder | Needed by |
 |---|---|
-| `hl2` | Half-Life 2, Portal, Episode One, and Episode Two |
-| `platform` | Half-Life 2, Portal, Episode One, and Episode Two |
+| `hl2` | Half-Life 2, Lost Coast, Portal, Episode One, and Episode Two |
+| `platform` | Half-Life 2, Lost Coast, Portal, Episode One, and Episode Two |
 | `portal` | Portal |
 | `episodic` | Episode One and Episode Two |
 | `ep2` | Episode Two |
+| `lostcoast` | Lost Coast |
 | `update` | Portal 2 |
 | `portal2_dlc2` | Portal 2 |
 | `portal2_dlc1` | Portal 2 |
@@ -101,7 +104,7 @@ file-transfer tool. Then choose **Import a folder…** in SourceVRPort and selec
 individual game folder or a parent folder containing several of them. Repeat
 until every folder required by the games you want is installed.
 
-### Half-Life 2 and the Episodes
+### Half-Life 2, Lost Coast, and the Episodes
 
 Copy the required folders from your Half-Life 2 installation. Both the normal
 Anniversary and `steam_legacy` files work; `steam_legacy` is recommended:
@@ -109,18 +112,18 @@ Anniversary and `steam_legacy` files work; `steam_legacy` is recommended:
 - Windows: `C:\Program Files (x86)\Steam\steamapps\common\Half-Life 2\`
 - macOS: `~/Library/Application Support/Steam/steamapps/common/Half-Life 2/`
 
-Import `hl2` and `platform` for Half-Life 2. Also import `episodic` for Episode One,
-and import both `episodic` and `ep2` for Episode Two.
+Import `hl2` and `platform` for Half-Life 2. Also import `lostcoast` for Lost Coast,
+`episodic` for Episode One, and both `episodic` and `ep2` for Episode Two.
 
 ### Portal
 
-Portal needs folders from two different Steam installations:
+Portal needs its `portal` folder and Half-Life 2 content. Both Half-Life 2
+branches work in 0.1.24:
 
-1. Import `hl2` and `platform` from the **Half-Life 2 `steam_legacy`** installation
-   above. **The Anniversary files do not work with Portal.** Select `steam_legacy`
-   under *Half-Life 2 → Properties → Betas* in Steam and let the game update
-   before copying these folders. Do not
-   substitute the same-named folders from Portal's installation.
+1. If you already imported complete `hl2` and `platform` folders from Half-Life 2,
+   keep them. Otherwise, import the `hl2` and `platform` folders shipped with Portal.
+   Before playing Half-Life 2, Lost Coast, or the Episodes, import a complete
+   Half-Life 2 `hl2` folder in place of Portal's partial copy.
 2. Import `portal` from your Portal installation:
 
    - Windows: `C:\Program Files (x86)\Steam\steamapps\common\Portal\`
@@ -164,8 +167,9 @@ public `custom` folder:
 | Portal 2 (experimental) | `/sdcard/SourceVRPort/common/portal2/custom/` |
 | Episode One | `/sdcard/SourceVRPort/common/episodic/custom/` |
 | Episode Two | `/sdcard/SourceVRPort/common/ep2/custom/` |
+| Lost Coast | `/sdcard/SourceVRPort/common/lostcoast/custom/` |
 
-A mod in the Half-Life 2 folder is also mounted by Portal and both Episodes. Use a
+A mod in the Half-Life 2 folder is also mounted by Lost Coast, Portal, and both Episodes. Use a
 game's own folder when the mod should apply only to that game. Portal 2 uses only
 its own folder from this table.
 
