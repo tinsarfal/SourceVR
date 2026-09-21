@@ -18,12 +18,12 @@ Steam copy of every game you want to play.
 
 - A Meta Quest or PICO headset with Developer Mode enabled (developed and tested on Quest 3).
 - Half-Life 2 on Steam. The normal/default **20th Anniversary (non-legacy)**
-  files work for Half-Life 2 in SourceVR 0.1.22 and later, but **`steam_legacy` is recommended**
+  files work for Half-Life 2, but **`steam_legacy` is recommended**
   (PatchVersion `8491853`). To use it, open *Half-Life 2 → Properties → Betas*
   in Steam, select `steam_legacy`, and let the game update. Half-Life 2's files
   are also required by Lost Coast, Portal, Episode One, and Episode Two.
 - Portal on Steam if you want to play Portal. Both Half-Life 2 content branches
-  work with Portal in 0.1.24.
+  work with Portal.
 - Portal 2 on Steam if you want to test the experimental Portal 2 support.
 - Episode One and/or Episode Two from your Half-Life 2 installation if you want
   to play them. Both the Anniversary and `steam_legacy` files work.
@@ -35,7 +35,8 @@ Steam copy of every game you want to play.
 
 ## Install or update
 
-The current release is 0.1.24. See its [release notes](https://github.com/tinsarfal/SourceVR/releases/tag/0.1.24).
+Download the latest release from the [Releases](../../releases/latest) page; its
+release notes describe what changed.
 
 The main APK contains one launcher for all six games and uses the package
 `com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
@@ -118,7 +119,7 @@ Import `hl2` and `platform` for Half-Life 2. Also import `lostcoast` for Lost Co
 ### Portal
 
 Portal needs its `portal` folder and Half-Life 2 content. Both Half-Life 2
-branches work in 0.1.24:
+branches work:
 
 1. If you already imported complete `hl2` and `platform` folders from Half-Life 2,
    keep them. Otherwise, import the `hl2` and `platform` folders shipped with Portal.
