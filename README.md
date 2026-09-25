@@ -1,6 +1,7 @@
 # SourceVR
 
-Native VR ports of Half-Life 2, Lost Coast, Portal, Portal 2, Episode One, and Episode Two for
+Native VR ports of Half-Life 2, Lost Coast, Entropy : Zero, Portal, Portal 2,
+Episode One, and Episode Two for
 standalone Meta Quest and PICO headsets. Builds are published on the
 [Releases](../../releases) page.
 
@@ -25,6 +26,8 @@ Steam copy of every game you want to play.
 - Portal on Steam if you want to play Portal. Both Half-Life 2 content branches
   work with Portal.
 - Portal 2 on Steam if you want to test the experimental Portal 2 support.
+- Entropy : Zero on Steam if you want to play it. Its Half-Life 2, Episode One,
+  and Episode Two dependencies must also be installed.
 - Episode One and/or Episode Two from your Half-Life 2 installation if you want
   to play them. Both the Anniversary and `steam_legacy` files work.
 - Lost Coast from your Half-Life 2 installation if you want to play it. Both
@@ -38,8 +41,10 @@ Steam copy of every game you want to play.
 Download the latest release from the [Releases](../../releases/latest) page; its
 release notes describe what changed.
 
-The main APK contains one launcher for all six games and uses the package
-`com.sourcevrport.hl2vr`. You can install it with SideQuest, adb, or another APK
+The SourceVR APK contains one launcher for all seven games. SourceVRCore contains
+the original six games, without Entropy : Zero. Both editions use the package
+`com.sourcevrport.hl2vr`, so installing one replaces the other and preserves
+existing app data. You can install either with SideQuest, adb, or another APK
 sideloading tool. To install or update it with adb:
 
 ```sh
@@ -48,9 +53,18 @@ adb install -r SourceVR-<version>.apk
 
 PICO headsets use `SourceVR-pico-<version>.apk` instead. PICO support is
 experimental and untested.
+For the six-game edition, use `SourceVRCore-<version>.apk` on Quest or
+`SourceVRCore-pico-<version>.apk` on PICO. The in-app updater stays on the
+installed edition.
 
 Use `-r` for updates so Android preserves your existing app data. Do not uninstall
 an existing SourceVRPort app to work around an update or signing error.
+
+The launcher’s **Game directory** setting can use game files already stored in a
+writable headset folder. Choose either a folder containing `common/` or one with
+game folders such as `hl2/` directly inside it. For a flat folder, saves stay in
+the default `SourceVRPort/user/` directory. You can reset the setting to the
+default location in the same dialog.
 
 ### Existing Portal, Episode One, and Episode Two players
 
@@ -94,9 +108,10 @@ shared copy of your retail folders at `/sdcard/SourceVRPort/common/`:
 | `episodic` | Episode One and Episode Two |
 | `ep2` | Episode Two |
 | `lostcoast` | Lost Coast |
+| `EntropyZero` | Entropy : Zero |
 | `update` | Portal 2 |
-| `portal2_dlc2` | Portal 2 |
-| `portal2_dlc1` | Portal 2 |
+| `portal2_dlc2` | Portal 2 (optional) |
+| `portal2_dlc1` | Portal 2 (optional) |
 | `portal2` | Portal 2 |
 | `portal2_platform` | Portal 2 (imported from its `platform` folder) |
 
@@ -115,6 +130,13 @@ Anniversary and `steam_legacy` files work; `steam_legacy` is recommended:
 
 Import `hl2` and `platform` for Half-Life 2. Also import `lostcoast` for Lost Coast,
 `episodic` for Episode One, and both `episodic` and `ep2` for Episode Two.
+
+### Entropy : Zero
+
+Import the `EntropyZero` folder from your Steam installation of Entropy : Zero,
+along with `hl2`, `platform`, `episodic`, and `ep2` from Half-Life 2. The folder
+name is case-sensitive. Entropy : Zero appears under Half-Life in the SourceVR
+launcher; SourceVRCore preserves installed content but does not offer the game.
 
 ### Portal
 
@@ -143,10 +165,10 @@ its content check to report ready.
    - Windows: `C:\Program Files (x86)\Steam\steamapps\common\Portal 2\`
    - macOS: `~/Library/Application Support/Steam/steamapps/common/Portal 2/`
 
-2. Copy `update`, `portal2_dlc2`, `portal2_dlc1`, `portal2`, and `platform` from
-   that installation to the headset.
+2. Copy `update`, `portal2`, and `platform` from that installation to the
+   headset. You can also copy `portal2_dlc1` and `portal2_dlc2` if present.
 3. Choose **Import a folder…** and select the Portal 2 parent folder to import all
-   five folders together, or import them one at a time. SourceVRPort stores Portal
+   folders together, or import them one at a time. SourceVRPort stores Portal
    2's `platform` folder as `portal2_platform` so it cannot overwrite the
    Half-Life 2 `platform` folder.
 
@@ -169,6 +191,7 @@ public `custom` folder:
 | Episode One | `/sdcard/SourceVRPort/common/episodic/custom/` |
 | Episode Two | `/sdcard/SourceVRPort/common/ep2/custom/` |
 | Lost Coast | `/sdcard/SourceVRPort/common/lostcoast/custom/` |
+| Entropy : Zero | `/sdcard/SourceVRPort/common/EntropyZero/custom/` |
 
 A mod in the Half-Life 2 folder is also mounted by Lost Coast, Portal, and both Episodes. Use a
 game's own folder when the mod should apply only to that game. Portal 2 uses only

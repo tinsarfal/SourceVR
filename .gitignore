@@ -2,3 +2,4 @@
 *.apk
 SHA256SUMS*.txt
 release-notes*.md
+.release-build-*/
