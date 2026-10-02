@@ -5,7 +5,7 @@ Episode One, and Episode Two for
 standalone Meta Quest and PICO headsets. Builds are published on the
 [Releases](../../releases) page.
 
-Join our community on [Discord](https://discord.gg/E5VVNyQQX4) for support and discussion.
+Join our community on [Discord](https://discord.gg/aD6CuyYGUA) for support and discussion.
 
 The release does not include the retail depots needed to play. You need your own
 Steam copy of every game you want to play.
